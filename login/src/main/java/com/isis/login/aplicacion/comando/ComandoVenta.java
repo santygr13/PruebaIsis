@@ -8,10 +8,9 @@ public class ComandoVenta {
     private Long idCliente;
     private LocalDate fecha;
 
-    public ComandoVenta(LocalDate fecha,Long idCliente,Long idVenta) {
+    public ComandoVenta(LocalDate fecha,Long idCliente) {
         this.fecha = fecha;
         this.idCliente=idCliente;
-        this.idVenta=idVenta;
     }
 
     public Long getIdVenta() {

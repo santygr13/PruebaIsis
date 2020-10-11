@@ -1,22 +1,31 @@
-package com.isis.login.dominio.modelo;
+package com.isis.login.infraestructura.entidad;
 
-public class Cliente {
+import javax.persistence.*;
 
+@Entity
+@Table(name="cliente")
+public class ClienteEntidad {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente", nullable = false, length = 30)
     private Long idCliente;
+
+    @Column(name = "nombre_cliente", nullable = false, length = 30)
     private String nombre;
+
+    @Column(name = "apellido_cliente", nullable = false, length = 20)
     private String apellido;
+
+    @Column(name = "dni_cliente", nullable = false, length = 30)
     private String dni;
+
+    @Column(name = "telefono_cliente", nullable = false, length = 30)
     private String telefono;
+
+    @Column(name = "email_cliente", nullable = false, length = 40)
     private String email;
 
-    public Cliente(String nombre, String apellido, String dni, String telefono, String email) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.telefono = telefono;
-        this.email = email;
-
-    }
 
     public Long getIdCliente() {
         return idCliente;

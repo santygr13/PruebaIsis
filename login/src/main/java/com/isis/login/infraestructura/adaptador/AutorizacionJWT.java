@@ -17,7 +17,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AutorizacionJWT extends OncePerRequestFilter {
+public class AutorizacionJWT extends OncePerRequestFilter{
+
 
     private final String HEADER = "Authorization";
     private final String PREFIX = "Bearer ";
@@ -64,4 +65,6 @@ public class AutorizacionJWT extends OncePerRequestFilter {
             return false;
         return true;
     }
+
+
 }

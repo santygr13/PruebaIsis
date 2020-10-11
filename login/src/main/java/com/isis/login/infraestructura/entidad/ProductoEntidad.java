@@ -1,15 +1,24 @@
-package com.isis.login.aplicacion.comando;
+package com.isis.login.infraestructura.entidad;
 
-public class ComandoProducto {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "producto")
+public class ProductoEntidad {
+
+    @Id
+    @GeneratedValue(
+            strategy= GenerationType.AUTO,
+            generator="native"
+    )
+    @Column(name = "codigo_producto", nullable = false, length = 11)
     private Long idProducto;
-    private String nombre;
-    private float precio;
 
-    public ComandoProducto(String nombre, float precio) {
-        this.nombre = nombre;
-        this.precio = precio;
-    }
+    @Column(name = "nombre_producto", nullable = false, length = 100)
+    private String nombre;
+
+    @Column(name = "precio_producto", nullable=false, length =10)
+    private float precio;
 
     public Long getIdProducto() {
         return idProducto;

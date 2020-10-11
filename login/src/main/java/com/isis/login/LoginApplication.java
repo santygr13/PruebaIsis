@@ -30,4 +30,6 @@ public class LoginApplication {
 					.anyRequest().authenticated();
 		}
 	}
+
+
 }

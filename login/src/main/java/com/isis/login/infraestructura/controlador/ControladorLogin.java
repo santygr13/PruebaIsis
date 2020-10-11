@@ -19,8 +19,6 @@ import java.util.stream.Collectors;
 public class ControladorLogin {
 
 
-
-
     @PostMapping("user")
     public UsuarioDto login(@RequestParam("user") String usuario, @RequestParam("password") String contrasena) {
 
