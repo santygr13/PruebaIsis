@@ -10,21 +10,20 @@ import java.time.LocalDate;
 public class VentaEntidad {
 
     @Id
+    @Column
     @GeneratedValue(
             strategy= GenerationType.AUTO,
             generator="native"
     )
     private Long idVenta;
 
-
-    @JoinColumn(name="id_cliente")
-    @Column(name = "id_client", nullable = false , length = 20)
-    private Long idCliente;
+    @JoinColumn
+    @ManyToOne
+    private ClienteEntidad idCliente;
 
     @Column(name = "fecha_venta", nullable = false , length = 20)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd")
     private LocalDate fecha;
-
 
 
     public Long getIdVenta() {
@@ -35,11 +34,11 @@ public class VentaEntidad {
         this.idVenta = idVenta;
     }
 
-    public Long getIdCliente() {
+    public ClienteEntidad getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(ClienteEntidad idCliente) {
         this.idCliente = idCliente;
     }
 

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class FabricaVenta {
 
     public Venta crear(ComandoVenta comandoVenta){
-        return new Venta(comandoVenta.getFecha(),comandoVenta.getIdCliente());
+        return new Venta(comandoVenta.getIdVenta(),comandoVenta.getIdCliente(),comandoVenta.getFecha());
     }
 }

@@ -8,7 +8,6 @@ public class ClienteEntidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente", nullable = false, length = 30)
     private Long idCliente;
 
     @Column(name = "nombre_cliente", nullable = false, length = 30)

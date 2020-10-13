@@ -1,6 +1,6 @@
 package com.isis.login.infraestructura.error;
 
-import com.isis.login.dominio.excepcion.ExcepcionFechaInvalida;
+import com.isis.login.dominio.excepcion.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,6 +22,11 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
 
     public ManejadorError(){
         CODIGO_ESTADO.put(ExcepcionFechaInvalida.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGO_ESTADO.put(ExcepcionCampoVacio.class.getSimpleName(),HttpStatus.BAD_REQUEST.value());
+        CODIGO_ESTADO.put(ExcepcionCantidadPositiva.class.getSimpleName(),HttpStatus.BAD_REQUEST.value());
+        CODIGO_ESTADO.put(ExcepcionCampoObligatorio.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGO_ESTADO.put(ExcepcionClienteNulo.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGO_ESTADO.put(ExcepcionDuplicidad.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
     @ExceptionHandler(Exception.class)

@@ -21,7 +21,7 @@ public class AutorizacionJWT extends OncePerRequestFilter{
 
 
     private final String HEADER = "Authorization";
-    private final String PREFIX = "Bearer ";
+    private final String PREFIX = "Token";
     private final String SECRET = "mySecretKey";
 
     @Override
@@ -65,6 +65,5 @@ public class AutorizacionJWT extends OncePerRequestFilter{
             return false;
         return true;
     }
-
 
 }

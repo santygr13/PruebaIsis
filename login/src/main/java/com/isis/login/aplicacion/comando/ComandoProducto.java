@@ -6,9 +6,10 @@ public class ComandoProducto {
     private String nombre;
     private float precio;
 
-    public ComandoProducto(String nombre, float precio) {
+    public ComandoProducto(String nombre, float precio,Long idProducto) {
         this.nombre = nombre;
         this.precio = precio;
+        this.idProducto=idProducto;
     }
 
     public Long getIdProducto() {

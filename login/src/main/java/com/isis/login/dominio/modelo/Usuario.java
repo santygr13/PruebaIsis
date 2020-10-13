@@ -1,8 +1,8 @@
-package com.isis.login.dominio.modelo.dto;
+package com.isis.login.dominio.modelo;
 
-public class UsuarioDto {
+public class Usuario {
 
-    private String user;
+    private String userName;
     private String password;
     private String token;
 
@@ -16,11 +16,11 @@ public class UsuarioDto {
     }
 
     public String getUser() {
-        return user;
+        return userName;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.userName = user;
     }
 
     public String getPassword() {

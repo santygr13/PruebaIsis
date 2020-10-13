@@ -33,7 +33,13 @@ public class RepositorioProductoSql implements RepositorioProducto {
     public List<ProductoDto> listar() {
         List<ProductoEntidad> listaProductoEntidad = repositorioProductoJpa.findAll();
         List<ProductoDto> listaProductoDto = new ArrayList<>();
-        return convertidorListaProducto.convertidorListaProductoEntidadAListaProdcuto(listaProductoEntidad,listaProductoDto);
+        return convertidorListaProducto.convertidorListaProductoEntidadAListaProducto(listaProductoEntidad,listaProductoDto);
+    }
+
+    @Override
+    public boolean productoExistente(Producto producto) {
+       String nombreProducto = producto.getNombre();
+       return(repositorioProductoJpa.filtroPorNombrePorducto(nombreProducto)) !=null;
     }
 
 }

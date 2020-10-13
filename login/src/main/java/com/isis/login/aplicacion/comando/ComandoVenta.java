@@ -1,14 +1,16 @@
 package com.isis.login.aplicacion.comando;
 
+import com.isis.login.dominio.modelo.Cliente;
+
 import java.time.LocalDate;
 
 public class ComandoVenta {
 
     private Long idVenta;
-    private Long idCliente;
+    private Cliente idCliente;
     private LocalDate fecha;
 
-    public ComandoVenta(LocalDate fecha,Long idCliente) {
+    public ComandoVenta(LocalDate fecha,Cliente idCliente) {
         this.fecha = fecha;
         this.idCliente=idCliente;
     }
@@ -21,11 +23,11 @@ public class ComandoVenta {
         this.idVenta = idVenta;
     }
 
-    public Long getIdCliente() {
+    public Cliente getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(Cliente idCliente) {
         this.idCliente = idCliente;
     }
 

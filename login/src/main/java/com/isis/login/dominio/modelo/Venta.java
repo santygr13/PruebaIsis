@@ -6,16 +6,22 @@ import java.time.LocalDate;
 
 public class Venta {
 
-    private static final String ERROR_FECHA_RESERVA="La fecha de la compra no es valida";
+    private static final String ERROR_FECHA_COMPRA="La fecha de la compra no es válida";
+    private static final String ESTE_CAMPO_ES_OBLIGATORIO="El campo es obligatorio";
+
 
     private Long idVenta;
-    private Long idCliente;
+    private Cliente idCliente;
     private LocalDate fecha;
 
-    public Venta(LocalDate fecha,Long idCliente) {
-        ValidadorArgumento.validadorFechaValida(fecha,ERROR_FECHA_RESERVA);
+    public Venta(Long idVenta, Cliente idCliente, LocalDate fecha) {
+        ValidadorArgumento.validadorFechaValida(fecha,ERROR_FECHA_COMPRA);
+        ValidadorArgumento.validarCampoVacio(fecha,ESTE_CAMPO_ES_OBLIGATORIO);
+        ValidadorArgumento.validarCampoObligatorio(fecha,ESTE_CAMPO_ES_OBLIGATORIO);
+
+        this.idVenta = idVenta;
+        this.idCliente = idCliente;
         this.fecha = fecha;
-        this.idCliente=idCliente;
     }
 
     public Long getIdVenta() {
@@ -26,11 +32,11 @@ public class Venta {
         this.idVenta = idVenta;
     }
 
-    public Long getIdCliente() {
+    public Cliente getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(Cliente idCliente) {
         this.idCliente = idCliente;
     }
 

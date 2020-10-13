@@ -10,13 +10,16 @@ import java.util.List;
 @Component
 public class ConvertidorListaProducto {
 
-    ModelMapper modelMapper= new ModelMapper();
-
-    public List<ProductoDto> convertidorListaProductoEntidadAListaProdcuto(List<ProductoEntidad> listaProductoEntidad , List<ProductoDto> listaProductoDto){
-        for(ProductoEntidad productoEntidad: listaProductoEntidad){
-            ProductoDto productoDto = modelMapper.map(productoEntidad,ProductoDto.class);
-            listaProductoDto.add(productoDto);
-        }
-       return listaProductoDto;
+    public ConvertidorListaProducto() {
     }
+
+    public static List<ProductoDto> convertidorListaProductoEntidadAListaProducto(List<ProductoEntidad> listaProductoEntidad , List<ProductoDto> listaProductoDto){
+        ModelMapper modelMapper= new ModelMapper();
+        listaProductoEntidad.forEach(temporal ->{
+            ProductoDto productoDto = modelMapper.map(temporal,ProductoDto.class);
+            listaProductoDto.add(productoDto);
+        });
+        return listaProductoDto;
+    }
+
 }

@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class ProductoEntidad {
 
     @Id
+    @Column
     @GeneratedValue(
-            strategy= GenerationType.AUTO,
-            generator="native"
+            strategy= GenerationType.AUTO
+
     )
-    @Column(name = "codigo_producto", nullable = false, length = 11)
     private Long idProducto;
 
     @Column(name = "nombre_producto", nullable = false, length = 100)

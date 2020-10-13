@@ -1,29 +1,29 @@
 package com.isis.login.infraestructura.controlador;
 
-import com.isis.login.dominio.modelo.dto.UsuarioDto;
 
-
+import com.isis.login.dominio.modelo.Usuario;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class ControladorLogin {
+@RequestMapping(value="/user")
+public class ControladorJwt {
 
 
-    @PostMapping("user")
-    public UsuarioDto login(@RequestParam("user") String usuario, @RequestParam("password") String contrasena) {
+    @PostMapping
+    @ResponseStatus(HttpStatus.OK)
+    public Usuario login(@RequestParam("user") String usuario, @RequestParam("password") String contrasena) {
 
         String token = getJWTToken(usuario);
-        UsuarioDto user = new UsuarioDto();
+        Usuario user = new Usuario();
         user.setUser(usuario);
         user.setPassword(contrasena);
         user.setToken(token);
@@ -37,17 +37,17 @@ public class ControladorLogin {
 
         String token = Jwts
                 .builder()
-                .setId("softtekJWT")
+                .setId("ZemsaniaJWT")
                 .setSubject(username)
                 .claim("authorities",
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 600000))
+                .setExpiration(new Date(System.currentTimeMillis() + 300000))
                 .signWith(SignatureAlgorithm.HS512,
                         secretKey.getBytes()).compact();
 
-        return "Bearer " + token;
+        return "Token" + token;
     }
 }

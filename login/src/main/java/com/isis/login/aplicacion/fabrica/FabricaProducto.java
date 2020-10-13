@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class FabricaProducto {
 
     public Producto crear(ComandoProducto comandoProducto){
-        return new Producto(comandoProducto.getNombre(),comandoProducto.getPrecio());
+        return new Producto(comandoProducto.getNombre(),comandoProducto.getPrecio(),comandoProducto.getIdProducto());
     }
 }

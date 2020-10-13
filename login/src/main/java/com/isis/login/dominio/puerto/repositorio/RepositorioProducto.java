@@ -9,5 +9,5 @@ public interface RepositorioProducto {
 
     void guardar(Producto producto);
     List<ProductoDto> listar();
-
+    boolean productoExistente(Producto producto);
 }
