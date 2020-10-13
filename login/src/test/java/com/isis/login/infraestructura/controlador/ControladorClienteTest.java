@@ -34,7 +34,7 @@ public class ControladorClienteTest {
     private MockMvc mockMvc;
 
     @Test
-    void crearPeliculaSinSala() throws Exception{
+    void crearClienteTest() throws Exception{
 
 
         ComandoCliente comandoCliente= new ComandoClienteTestDataBuilder().build();
